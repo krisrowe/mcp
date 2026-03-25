@@ -11,6 +11,7 @@ Everything here follows an **MCP-first** design — tools are self-documenting, 
 | Repo | What it does |
 |------|-------------|
 | [gapp](https://github.com/krisrowe/gapp) | Deploy Python MCP servers to Google Cloud Run with auth, secrets, and credential mediation. CLI + MCP + Claude plugin. |
+| [app-user](https://github.com/krisrowe/app-user) | Auth and user data management for multi-user web apps. JWT auth, admin endpoints, per-user data storage. |
 | [claude-plugin-creator](https://github.com/krisrowe/claude-plugin-creator) | Scaffold Claude Code plugins with self-installing dependencies, MCP server config, and hooks. |
 | [claude-plugins](https://github.com/krisrowe/claude-plugins) | Plugin marketplace for Claude Code. Install community and personal plugins with `claude plugin install`. |
 
@@ -56,3 +57,9 @@ my-app/
 **Deployment**: Servers run locally via stdio for low-latency agent integration, or deploy to Cloud Run via [gapp](https://github.com/krisrowe/gapp) for remote/mobile access.
 
 **Plugins**: Claude Code plugins bundle MCP servers with auto-installing dependencies via the [self-installing pattern](https://github.com/krisrowe/claude-plugin-creator). Install from the [marketplace](https://github.com/krisrowe/claude-plugins) or point Claude at any plugin repo directly.
+
+## Framework and Design
+
+All servers use the official [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk) (`pip install mcp`), importing from `mcp.server.fastmcp`. See [docs/mcp-framework.md](docs/mcp-framework.md) for a detailed comparison of the two Python MCP packages, why we chose the official SDK, and working examples.
+
+For patterns around MCP tool proxying and server-to-server orchestration, see [docs/mcp-proxy.md](docs/mcp-proxy.md).
