@@ -165,14 +165,13 @@ for the testing philosophy.
 
 ### Examples
 
-The most mature repos following this pattern, suitable as references:
+Mature repos following this pattern:
 
 | Repo | SDK package | Notes |
 |------|------------|-------|
-| [gworkspace-access](https://github.com/krisrowe/gworkspace-access) | `gwsa.sdk` | Cross-repo SDK consumer exists. Mail, docs, drive, chat, calendar modules. Cloud-deployed via gapp. |
-| [dotfiles-manager](https://github.com/krisrowe/dotfiles-manager) | `dotgit.sdk` | Clean local-only example. Sync, stores, exclude, remote modules. Bare git repo orchestration. |
-| [aicfg](https://github.com/krisrowe/aicfg) | `aicfg.sdk` | Skills marketplace, MCP server management, settings. Local-only. Comprehensive test suite. |
-| [food-agent](https://github.com/krisrowe/food-agent) | `food_agent.sdk` | Cloud-deployed via mcp-app + gapp. Multi-user with per-user data isolation. |
+| [gworkspace-access](https://github.com/krisrowe/gworkspace-access) | `gwsa.sdk` | Google Workspace API integration. Cross-repo SDK consumer exists. Cloud-deployed via gapp. |
+| [monarch-access](https://github.com/krisrowe/monarch-access) | `monarch.sdk` | Monarch Money financial API integration. Cloud-deployed via gapp. |
+| [ticktick-mcp](https://github.com/krisrowe/ticktick-mcp) | `ticktick.sdk` | TickTick task management API integration. Cloud-deployed via gapp. |
 
 ---
 
