@@ -128,9 +128,9 @@ it in late 2024. This is confirmed in the SDK's own git history:
 > This commit integrates FastMCP, a high-level MCP server implementation
 > originally written by Jeremiah Lowin, into the official MCP SDK.
 >
-> — Commit [557e90d](https://github.com/modelcontextprotocol/python-sdk/commit/557e90d),
+> — [PR #106](https://github.com/modelcontextprotocol/python-sdk/pull/106) (commit 557 e90d),
 > December 21, 2024, by David Soria Parra (dsp-ant),
-> [modelcontextprotocol/python-sdk](https://github.com/modelcontextprotocol/python-sdk/commits/main/src/mcp/server/fastmcp)
+> [modelcontextprotocol/python-sdk](https://github.com/modelcontextprotocol/python-sdk)
 
 After integration, the two projects diverged. The official SDK's
 version stayed at roughly the FastMCP 1.0 API. The standalone project

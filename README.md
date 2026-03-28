@@ -60,6 +60,18 @@ my-app/
 
 ## Framework and Design
 
-All servers use the official [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk) (`pip install mcp`), importing from `mcp.server.fastmcp`. See [docs/mcp-framework.md](docs/mcp-framework.md) for a detailed comparison of the two Python MCP packages, why we chose the official SDK, and working examples.
+All servers follow an **SDK-first** pattern: business logic lives in an
+importable `sdk/` package, with thin MCP and CLI wrappers that call into
+it. This ensures consistent behavior across all interfaces and enables
+cross-repo SDK consumption (e.g., gworkspace-access's SDK is imported
+by agentic-consult). Local tools run via stdio and pipx; cloud tools
+add [mcp-app](https://github.com/krisrowe/mcp-app) for HTTP auth and
+[gapp](https://github.com/krisrowe/gapp) for Cloud Run deployment.
 
-For patterns around MCP tool proxying and server-to-server orchestration, see [docs/mcp-proxy.md](docs/mcp-proxy.md).
+See **[framework/](framework/)** for the full architecture guide —
+foundations, the SDK-first pattern, constraints, examples, and solution
+repo conventions.
+
+Design references:
+- [docs/mcp-framework.md](docs/mcp-framework.md) — why we use the official MCP Python SDK over standalone FastMCP
+- [docs/mcp-proxy.md](docs/mcp-proxy.md) — MCP tool proxying and server-to-server orchestration

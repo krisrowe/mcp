@@ -51,7 +51,7 @@ The spec also notes:
 
 David Soria Parra is an MCP co-creator at Anthropic, confirmed via his
 [contributions to the official SDK](https://github.com/modelcontextprotocol/python-sdk/commits?author=dsp-ant)
-(he authored the [commit that integrated FastMCP](https://github.com/modelcontextprotocol/python-sdk/commit/557e90d)
+(he authored the [PR that integrated FastMCP](https://github.com/modelcontextprotocol/python-sdk/pull/106)
 into the official SDK). In an
 [interview on Latent Space](https://www.latent.space/p/mcp), he stated:
 
@@ -119,7 +119,7 @@ See [mcp-framework.md](mcp-framework.md) for details on the SDK.
 ### 4. Major frameworks implement dedicated proxy support
 
 The standalone [FastMCP](https://gofastmcp.com) project (whose v1.0
-was [integrated into the official SDK](https://github.com/modelcontextprotocol/python-sdk/commit/557e90d))
+was [integrated into the official SDK](https://github.com/modelcontextprotocol/python-sdk/pull/106))
 has a built-in [proxy provider](https://gofastmcp.com/patterns/proxy):
 
 > Make an HTTP server available via stdio, or vice versa. Combine
