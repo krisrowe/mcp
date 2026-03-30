@@ -206,3 +206,49 @@ my-app-mcp = "my_app.mcp.server:main"  # MCP server entry point
 
 Install with `pipx install` for CLI use. Register MCP server with
 `claude mcp add` or `aicfg mcp add` for agent use.
+
+### SDK as a lightweight install
+
+The SDK, CLI, and MCP layers ship in a single package today. All three
+install together. For repos where the SDK is consumed cross-repo (e.g.,
+[gworkspace-access](https://github.com/krisrowe/gworkspace-access)'s
+`gwsa.sdk` is imported by other packages), this means the consumer pulls
+in Click and FastMCP as transitive dependencies even though it only
+needs the SDK.
+
+The solution is **optional extras** in `pyproject.toml`:
+
+```toml
+[project]
+name = "gwsa"
+dependencies = [
+    # only SDK dependencies here
+    "google-auth", "httpx",
+]
+
+[project.optional-dependencies]
+cli = ["click>=8.0"]
+mcp = ["mcp>=1.0.0"]
+```
+
+This lets consumers choose what they need:
+
+```bash
+# SDK only (for cross-repo import)
+pip install "git+https://github.com/USER/my-app.git"
+
+# SDK + CLI + MCP (full install)
+pipx install "my-app[cli,mcp] @ git+https://github.com/USER/my-app.git"
+```
+
+No code changes required — the SDK already doesn't import Click or
+FastMCP. This is purely a packaging change in `pyproject.toml`.
+
+### Same repo vs. separate repos
+
+The SDK, MCP server, and CLI all live in the same repository. This is
+the right default for most products — single repo, single version,
+single release. Separating into distinct repos is valid for mature
+products where independent release cadences or separate contributor
+communities justify the overhead, but adds packaging complexity that
+is rarely warranted at early stages.
